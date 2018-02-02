@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="button_margin_width_height">35dp</dimen>
+    <dimen name="button_margin_leftstart">10dp</dimen>
+    <dimen name="button_margin_endright">305dp</dimen>
+    <dimen name="button_margin_top">10dp</dimen>
+    <dimen name="button_start_width">221dp</dimen>
+    <dimen name="button_start_margin_endleft">50dp</dimen>
+    <dimen name="button_start_margin_startright">70dp</dimen>
+    <dimen name="button_start_margin_top">460</dimen>
+
+
+</resources>
