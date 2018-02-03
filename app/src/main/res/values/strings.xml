@@ -4,4 +4,7 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_main3">Main3Activity</string>
     <string name="start">START</string>
+    <string name="q1_title">q1_tittle</string>
+    <string name="check_results">Check results</string>
+    <string name="play_again">Play again</string>
 </resources>

@@ -7,9 +7,27 @@
     <dimen name="button_margin_endright">305dp</dimen>
     <dimen name="button_margin_top">10dp</dimen>
     <dimen name="button_start_width">221dp</dimen>
-    <dimen name="button_start_margin_endleft">50dp</dimen>
-    <dimen name="button_start_margin_startright">70dp</dimen>
-    <dimen name="button_start_margin_top">460</dimen>
-
-
+    <dimen name="button_start_margin_endright">70dp</dimen>
+    <dimen name="button_start_margin_startleft">90dp</dimen>
+    <dimen name="button_start_margin_endright_land">200dp</dimen>
+    <dimen name="button_start_margin_startleft_land">250dp</dimen>
+    <dimen name="button_start_margin_top">460dp</dimen>
+    <dimen name="button_start_margin_top_land">180dp</dimen>
+    <dimen name="imageview_height">135dp</dimen>
+    <dimen name="margin_top">50dp</dimen>
+    <dimen name="margin_leftstart">10dp</dimen>
+    <dimen name="margin_rightend">10dp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="checkbutton_padding">15dp</dimen>
+    <dimen name="checkbutton_paddingtop">10dp</dimen>
+    <dimen name="q_message_margintop">10dp</dimen>
+    <dimen name="q_message_marginbottom">40dp</dimen>
+    <dimen name="q_message_marginleftstart">10dp</dimen>
+    <dimen name="q_message_marginrightend">10dp</dimen>
+    <dimen name="q_message_text_size">15sp</dimen>
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="button2_margin_leftstart">25dp</dimen>
+    <dimen name="button2_margin_rightend">5dp</dimen>
+    <dimen name="button_margin_bottom">20dp</dimen>
+    <dimen name="button_weight">1</dimen>
 </resources>

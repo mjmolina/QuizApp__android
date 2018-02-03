@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.mariajosemolina.quizapp.MainActivity"
-    android:background="@drawable/portadaapp"
+    android:background="@drawable/portadaappland"
     android:orientation="vertical">
 
     <LinearLayout
@@ -30,11 +30,11 @@
             android:id="@+id/Start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/button_start_margin_endright"
-            android:layout_marginRight="@dimen/button_start_margin_endright"
-            android:layout_marginLeft="@dimen/button_start_margin_startleft"
-            android:layout_marginStart="@dimen/button_start_margin_startleft"
-            android:layout_marginTop="@dimen/button_start_margin_top"
+            android:layout_marginLeft="@dimen/button_start_margin_startleft_land"
+            android:layout_marginStart="@dimen/button_start_margin_startleft_land"
+            android:layout_marginRight="@dimen/button_start_margin_endright_land"
+            android:layout_marginEnd="@dimen/button_start_margin_endright_land"
+            android:layout_marginTop="@dimen/button_start_margin_top_land"
             android:background="@drawable/button_round_corners"
             android:text="@string/start"
             android:textColor="@android:color/black" />

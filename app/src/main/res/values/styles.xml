@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
 
     <!-- Base application theme. -->
@@ -5,7 +7,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#b2dfdb</item>
         <item name="colorPrimaryDark">#80cbc4</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">#cfd8dc</item>
 
 
     </style>
