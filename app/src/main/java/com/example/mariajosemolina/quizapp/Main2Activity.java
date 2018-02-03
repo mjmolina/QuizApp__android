@@ -55,13 +55,13 @@ public class Main2Activity extends AppCompatActivity {
     public void init_questions() {
         // Question 1
         List<String> q01 = Arrays.asList("0",
-                "Which is the meaning of ATOM",
+                "What is the meaning of the word ATOM",
                 "Divisible",
                 "Indivisible",
                 "The smallest",
                 "Particle",
                 "2",
-                "The word ATOM comes from the Greek word for 'indivisible', but we know that is divisible!");
+                "The word ATOM comes from the Greek and means: 'indivisible'. But we know that is divisible!");
         questions.add(q01);
 
         // Question 2
@@ -72,7 +72,7 @@ public class Main2Activity extends AppCompatActivity {
                 "Males needs to drink on average 1.5lt while females need 3.5lt",
                 "Every day, we lose about ~250ml of water in total when we exhale",
                 "3",
-                "The National Academies of Sciences, Engineering, and Medicine (US) determined that an adequate daily fluid intake is roughly 3.5lt and 2.5lt for an average male and female respectevely");
+                "The National Academies of Sciences, Engineering, and Medicine (US) determined that an adequate daily fluid intake is roughly 3.5lt and 2.5lt for an average male and female respectively");
         questions.add(q02);
 
         // Question 3
@@ -83,7 +83,7 @@ public class Main2Activity extends AppCompatActivity {
                 "In our Blood",
                 "Only in our Hair",
                 "3",
-                "Most of the body's Iron is locked up in the Haemoglobin found in red blood cells, used for oxygen transport.");
+                "Most of the body's Iron is locked up in the Haemoglobin found in red blood cells, used for oxygen transport");
         questions.add(q03);
 
         // Question 4
@@ -99,7 +99,7 @@ public class Main2Activity extends AppCompatActivity {
 
         // Question 5
         List<String> q05 = Arrays.asList("0",
-                "Some frogs are colourful and warn us that they are extremely toxic. This animals have poison compounds, for instance the batrachotoxine a neurotoxine, in their skin. How could they avoid to be poison by themselves?",
+                "Some frogs are colourful and warn us that they are extremely toxic. This animals have poison compounds, for instance the batrachotoxin a neurotoxine, in their skin. How could they avoid to be poison by themselves?",
                 "They can not touch their own skin",
                 "They have a mutation avoiding the entrance of the toxic",
                 "They can be poisoned",
