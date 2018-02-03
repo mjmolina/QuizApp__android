@@ -110,7 +110,7 @@ public class Main2Activity extends AppCompatActivity {
 
         // Question 6
         List<String> q06 = Arrays.asList("1",
-                "When plants grows near, start a competence for light. In this situation is activated a Syndrome. Do you know the name of the Syndrome?",
+                "When plants grow near, start a competence for light. In this situation is activated a Syndrome. Do you know the name of the Syndrome?",
                 "I am the Winner Syndrome (IWS)",
                 "Avoiding Competence Syndrome (ACS)",
                 "Shade Avoidance Syndrome (SAS)",
@@ -123,7 +123,7 @@ public class Main2Activity extends AppCompatActivity {
         List<String> q07 = Arrays.asList("1",
                 "Which of the following sentenced do you think is False about Ladybugs?",
                 "A ladybug can practice cannibalism",
-                "They are not really bug.",
+                "They are not really bug",
                 "They can control to lie fertile or infertile eggs",
                 "You can tell how old a ladybug is according to the black dots",
                 "4",
@@ -138,18 +138,18 @@ public class Main2Activity extends AppCompatActivity {
                 "180",
                 "200",
                 "4",
-                "Humans are born with 270 bones, but while growing up some of them get fused and we end up with 206 bones.");
+                "Humans are born with 270 bones, but while growing up some of them get fused and we end up with 206 bones");
         questions.add(q08);
 
         // Question 9
         List<String> q09 = Arrays.asList("1",
                 "Female sharks have thicker skins than males. How do you think they developed this feature?",
-                "While mating, male sharks usually bite the females to anchor themself",
-                "To contain the offsprings more safely, because any impact on her body can cause them damage",
+                "While mating, male sharks usually bite the females to anchor themselves",
+                "To contain the offspring more safely, because any impact on her body can cause them damage",
                 "To resist attacks from predators, that usually attack females only",
                 "To be able to swim in deeper waters and resist the pressure",
                 "1",
-                "The skin of a female shark is much thicker than a male because these bite females during mating,");
+                "The skin of a female shark is much thicker than a male because these bite females during mating");
         questions.add(q09);
 
         // Question 10
@@ -157,7 +157,7 @@ public class Main2Activity extends AppCompatActivity {
                 "Which of the following statements is True:",
                 "If you sneeze with your eyes open will they pop out",
                 "You can survive in the desert drinking your own urine",
-                "Humans cannot survive on a diet purely based on insects",
+                "Humans can not survive on a diet purely based on insects",
                 "The temperature of a lighting bolt is hotter than the surface of the sun",
                 "4",
                 "A lighting bolt temperature is about 30,000 Kelvin, while the Sun's surface is only 6,000 Kelvin. The important aspect is that the Sun's surface is not so hot compared to its atmosphere");
@@ -187,10 +187,10 @@ public class Main2Activity extends AppCompatActivity {
 
         // Question 13
         List<String> q13 = Arrays.asList("2",
-                "The smallest planet in our solar system is Mercury (40% of earth's size) and upiter is the biggest planet (12 times bigger than earth). How many Solar System planets can fit between the distance of the earth and the moon?",
+                "The smallest planet in our solar system is Mercury (40% of earth's size) and Jupiter is the biggest planet (12 times bigger than earth). How many Solar System planets can fit between the distance of the earth and the moon?",
                 "Only Jupiter",
-                "Two, mercury and Venus, because they are the smallest",
-                "We cannot fit any planets between the earth and the moon",
+                "Two, Mercury and Venus, because they are the smallest",
+                "We can not fit any planets between the earth and the moon",
                 "We can fit all the planets between the earth and the moon",
                 "4",
                 "We can fit all of them!, and we have 2,000 km left!");
@@ -209,7 +209,7 @@ public class Main2Activity extends AppCompatActivity {
 
         // Question 15
         List<String> q15 = Arrays.asList("2",
-                "How Much Does the Earth Weight (kg)?",
+                "How much does the Earth weight (kg)?",
                 "6,000,000,000,000,000,000,000,000 kg",
                 "6,000,000,000,000,000,000,000 kg",
                 "6,000,000,000,000,000 kg",
