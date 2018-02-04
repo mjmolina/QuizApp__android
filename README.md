@@ -21,4 +21,4 @@ and there is no much technical words.
 * When the user decide to check the answers, an text will appear under each question with the explanation of the answer.
 * At the end of the Quiz there are two buttons to: Check the answers and to play again.
 
- ![Screenshot](screenshot.jpg "Screenshot")
+ ![Screenshot](screenshot.png "Screenshot")
