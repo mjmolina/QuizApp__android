@@ -1,9 +1,9 @@
 package com.example.mariajosemolina.quizapp;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,6 +15,8 @@ import android.graphics.Color;
 import android.content.Intent;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.CheckBox;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,23 +38,37 @@ public class Main2Activity extends AppCompatActivity {
     //        5: Option D
     //        6: Solution, correct answer ("1", "2", "3" or "4")
     //        7: Extra text
+    // This questions are thought to be RadioGroup questions.
     List<List<String>> questions = new ArrayList<List<String>>();
 
-    // This is the declaration to access all the elements of the Quiz
-    ImageView q1_image, q2_image, q3_image, q4_image, q5_image;
-    TextView q1_title, q2_title, q3_title, q4_title, q5_title;
+    // Bonus Questions
+    // The structure of the questions  was changed to adapt it to new
+    // types of questions, CheckBox and EditText ones.
+    List<String> bonusquestion1 = Arrays.asList("3",
+            "Which of the following animals hibernate?",
+            "Bears", "Bats", "Marmots", "Flamingos", "True,True,True,False",
+            "Curiously: bears, bats and marmots hibernate in winter. Meanwhile, flamingos emigrate!");
+    List<String> bonusquestion2 = Arrays.asList("3",
+            "What is the meaning of “DNA”?", "desoxyribonucleic acid",
+            "The meaning of DNA is DesoxyriboNucleic Acid");
+
+    // This is the declaration to access all the interface elements of the Quiz
+    ImageView q1_image, q2_image, q3_image, q4_image, q5_image, q6_image, q7_image;
+    TextView q1_title, q2_title, q3_title, q4_title, q5_title, q6_title, q7_title;
     TextView q1_optionA, q2_optionA, q3_optionA, q4_optionA, q5_optionA;
     TextView q1_optionB, q2_optionB, q3_optionB, q4_optionB, q5_optionB;
     TextView q1_optionC, q2_optionC, q3_optionC, q4_optionC, q5_optionC;
     TextView q1_optionD, q2_optionD, q3_optionD, q4_optionD, q5_optionD;
-    TextView q1_message, q2_message, q3_message, q4_message, q5_message;
+    TextView q1_message, q2_message, q3_message, q4_message, q5_message, q6_message, q7_message;
     RadioGroup q1_buttons, q2_buttons, q3_buttons, q4_buttons, q5_buttons;
+    CheckBox q6_optionA, q6_optionB, q6_optionC, q6_optionD;
+    EditText q7_answer;
     Boolean evaluated = Boolean.FALSE;
 
     // Buttons at the end of the questions
     Button again_button, send_button;
 
-    public void init_questions() {
+    private void init_questions() {
         // Question 1
         List<String> q01 = Arrays.asList("0",
                 "What is the meaning of the word ATOM",
@@ -220,23 +236,28 @@ public class Main2Activity extends AppCompatActivity {
 
         // Since we have a list of questions, we can shuffle them to get random questions in our Quiz
         Collections.shuffle(questions);
+
     }
 
     // Method that will find each element on the activity_main2.xml layout
     // and will connect it to our variables.
-    public void init_elements() {
+    private void init_elements() {
 
         q1_image = (ImageView) findViewById(R.id.q1_image);
         q2_image = (ImageView) findViewById(R.id.q2_image);
         q3_image = (ImageView) findViewById(R.id.q3_image);
         q4_image = (ImageView) findViewById(R.id.q4_image);
         q5_image = (ImageView) findViewById(R.id.q5_image);
+        q6_image = (ImageView) findViewById(R.id.q6_image);
+        q7_image = (ImageView) findViewById(R.id.q7_image);
 
         q1_title = (TextView) findViewById(R.id.q1_title);
         q2_title = (TextView) findViewById(R.id.q2_title);
         q3_title = (TextView) findViewById(R.id.q3_title);
         q4_title = (TextView) findViewById(R.id.q4_title);
         q5_title = (TextView) findViewById(R.id.q5_title);
+        q6_title = (TextView) findViewById(R.id.q6_title);
+        q7_title = (TextView) findViewById(R.id.q7_title);
 
         q1_optionA = (TextView) findViewById(R.id.q1_optionA);
         q2_optionA = (TextView) findViewById(R.id.q2_optionA);
@@ -267,6 +288,8 @@ public class Main2Activity extends AppCompatActivity {
         q3_message = (TextView) findViewById(R.id.q3_message);
         q4_message = (TextView) findViewById(R.id.q4_message);
         q5_message = (TextView) findViewById(R.id.q5_message);
+        q6_message = (TextView) findViewById(R.id.q6_message);
+        q7_message = (TextView) findViewById(R.id.q7_message);
 
         q1_buttons = (RadioGroup) findViewById(R.id.q1_buttons);
         q2_buttons = (RadioGroup) findViewById(R.id.q2_buttons);
@@ -274,13 +297,20 @@ public class Main2Activity extends AppCompatActivity {
         q4_buttons = (RadioGroup) findViewById(R.id.q4_buttons);
         q5_buttons = (RadioGroup) findViewById(R.id.q5_buttons);
 
+        q6_optionA = (CheckBox) findViewById(R.id.q6_optionA);
+        q6_optionB = (CheckBox) findViewById(R.id.q6_optionB);
+        q6_optionC = (CheckBox) findViewById(R.id.q6_optionC);
+        q6_optionD = (CheckBox) findViewById(R.id.q6_optionD);
+
+        q7_answer = (EditText) findViewById(R.id.q7_answer);
+
         again_button = (Button) findViewById(R.id.again);
         send_button = (Button) findViewById(R.id.send);
     }
 
     // Method that will set the header image to each question
     // but depending on the category of the question.
-    public void set_image_to_question(List<String> q, ImageView img) {
+    private void set_image_to_question(List<String> q, ImageView img) {
 
         // We get the category of the question
         String category = q.get(0);
@@ -291,10 +321,12 @@ public class Main2Activity extends AppCompatActivity {
             img.setImageResource(R.drawable.biology);
         else if (category == "2")
             img.setImageResource(R.drawable.physics);
+        else if (category == "3")
+            img.setImageResource(R.drawable.stars);
     }
 
     // Method to set the values of the images, the questions and the options.
-    public void set_questions_on_screen() {
+    private void set_questions_on_screen() {
 
         // Setting the images to the header of each question
         // depending on the category
@@ -303,6 +335,8 @@ public class Main2Activity extends AppCompatActivity {
         set_image_to_question(questions.get(2), q3_image);
         set_image_to_question(questions.get(3), q4_image);
         set_image_to_question(questions.get(4), q5_image);
+        set_image_to_question(bonusquestion1, q6_image);
+        set_image_to_question(bonusquestion2, q7_image);
 
         // Setting the title of each question
         q1_title.setText(questions.get(0).get(1));
@@ -310,6 +344,8 @@ public class Main2Activity extends AppCompatActivity {
         q3_title.setText(questions.get(2).get(1));
         q4_title.setText(questions.get(3).get(1));
         q5_title.setText(questions.get(4).get(1));
+        q6_title.setText(bonusquestion1.get(1));
+        q7_title.setText(bonusquestion2.get(1));
 
         // Setting the options for each question
         q1_optionA.setText(questions.get(0).get(2));
@@ -337,10 +373,14 @@ public class Main2Activity extends AppCompatActivity {
         q5_optionC.setText(questions.get(4).get(4));
         q5_optionD.setText(questions.get(4).get(5));
 
+        q6_optionA.setText(bonusquestion1.get(2));
+        q6_optionB.setText(bonusquestion1.get(3));
+        q6_optionC.setText(bonusquestion1.get(4));
+        q6_optionD.setText(bonusquestion1.get(5));
+
     }
 
-    public void resume_questions_on_screen(Bundle savedInstanceState) {
-
+    private void resume_questions_on_screen(Bundle savedInstanceState) {
 
         init_elements();
 
@@ -357,6 +397,13 @@ public class Main2Activity extends AppCompatActivity {
         Integer a3 = savedInstanceState.getInt("a3");
         Integer a4 = savedInstanceState.getInt("a4");
         Integer a5 = savedInstanceState.getInt("a5");
+
+        Boolean a6A = savedInstanceState.getBoolean("a6A");
+        Boolean a6B = savedInstanceState.getBoolean("a6B");
+        Boolean a6C = savedInstanceState.getBoolean("a6C");
+        Boolean a6D = savedInstanceState.getBoolean("a6D");
+
+        String a7 = savedInstanceState.getString("a7");
 
         if (a1 != -1)
             q1_buttons.check(a1);
@@ -416,20 +463,31 @@ public class Main2Activity extends AppCompatActivity {
         q5_optionC.setText(questions.get(4).get(4));
         q5_optionD.setText(questions.get(4).get(5));
 
+        q6_optionA.setText(bonusquestion1.get(2));
+        q6_optionB.setText(bonusquestion1.get(3));
+        q6_optionC.setText(bonusquestion1.get(4));
+        q6_optionD.setText(bonusquestion1.get(5));
+
+        q6_optionA.setChecked(a6A);
+        q6_optionB.setChecked(a6B);
+        q6_optionC.setChecked(a6C);
+        q6_optionD.setChecked(a6D);
+
+        q7_answer.setText(a7);
+
         if (eval) {
             evaluate_questions(eval);
         }
 
     }
 
-
     // Method to verify if a question is correct depending
     // on the selection that the user made.
-    public int check_question(RadioGroup b, int index, TextView m) {
+    private int check_question(RadioGroup b, int index, TextView m) {
 
         // First we disable all the RadioButtons from the RadioGroup b
         // to avoid the user can change the answer
-        for (int i = 0; i < b.getChildCount(); i=i+1) {
+        for (int i = 0; i < b.getChildCount(); i = i + 1) {
             // We get each "child" (RadioButton) for the "parent" (RadioGroup)
             // and we disable it.
             b.getChildAt(i).setEnabled(false);
@@ -478,8 +536,109 @@ public class Main2Activity extends AppCompatActivity {
         }
     }
 
+    // Method to verify if a question is correct depending
+    // on the selection that the user made.
+    private int check_question_checkbox(List<CheckBox> answers, TextView m) {
+
+        // First we disable all the checkbox
+        // to avoid the user can change the answer
+        for (int i = 0; i < answers.size(); i = i + 1) {
+            answers.get(i).setEnabled(false);
+        }
+
+        // Set the text that will be displayed under the options
+        // with the corresponding text that explains the answer.
+        m.setText("Answer: " + bonusquestion1.get(7));
+
+        // We get the option that the user selected from the question
+        boolean answerA = answers.get(0).isChecked();
+        boolean answerB = answers.get(1).isChecked();
+        boolean answerC = answers.get(2).isChecked();
+        boolean answerD = answers.get(3).isChecked();
+
+        // Get the answer from the question.
+        String solutions = bonusquestion1.get(6);
+        String solA = solutions.split(",")[0];
+        boolean solutionA = false;
+        if (solA.equals("True")) {
+            solutionA = true;
+        }
+
+        String solB = solutions.split(",")[1];
+        boolean solutionB = false;
+        if (solB.equals("True")) {
+            solutionB = true;
+        }
+
+        String solC = solutions.split(",")[2];
+        boolean solutionC = false;
+        if (solC.equals("True")) {
+            solutionC = true;
+        }
+
+        String solD = solutions.split(",")[3];
+        boolean solutionD = false;
+        if (solD.equals("True")) {
+            solutionD = true;
+        }
+
+        q6_optionA.setBackgroundColor(Color.parseColor("#ef9a9a"));
+        q6_optionB.setBackgroundColor(Color.parseColor("#ef9a9a"));
+        q6_optionC.setBackgroundColor(Color.parseColor("#ef9a9a"));
+        q6_optionD.setBackgroundColor(Color.parseColor("#ef9a9a"));
+
+        int all = 0;
+
+        if (answerA == solutionA) {
+            q6_optionA.setBackgroundColor(Color.parseColor("#c8e6c9"));
+            all = all + 1;
+        }
+
+        if (answerB == solutionB) {
+            q6_optionB.setBackgroundColor(Color.parseColor("#c8e6c9"));
+            all = all + 1;
+        }
+        if (answerC == solutionC) {
+            q6_optionC.setBackgroundColor(Color.parseColor("#c8e6c9"));
+            all = all + 1;
+        }
+        if (answerD == solutionD) {
+            q6_optionD.setBackgroundColor(Color.parseColor("#c8e6c9"));
+            all = all + 1;
+        }
+
+        if (all == 4)
+            return 1;
+
+        return 0;
+    }
+
+    private int check_question_text(EditText answer, TextView m) {
+
+        // Disabling EditText
+        answer.setEnabled(false);
+
+        // Set the text that will be displayed under the options
+        // with the corresponding text that explains the answer.
+        m.setText("Answer: " + bonusquestion2.get(3));
+
+        // Cleaning the answer
+        String entry = answer.getText().toString().toLowerCase().trim();
+        entry = entry.replace("\n", "").replace("\r", "");
+        entry = entry.replace(" ", "");
+
+        // Get the answer from the question.
+        String solution = bonusquestion2.get(2);
+        String partA = solution.split(" ")[0];
+        String partB = solution.split(" ")[1];
+        if (entry.contains(partA) && entry.contains(partB)) {
+            return 1;
+        }
+        return 0;
+    }
+
     // Method that will check each question and keep track of the total score of the player
-    public void evaluate_questions(Boolean eval) {
+    private void evaluate_questions(Boolean eval) {
 
         // The user start with 0 points
         int result = 0;
@@ -492,6 +651,15 @@ public class Main2Activity extends AppCompatActivity {
         result = result + check_question(q3_buttons, 2, q3_message);
         result = result + check_question(q4_buttons, 3, q4_message);
         result = result + check_question(q5_buttons, 4, q5_message);
+        List<CheckBox> q6 = new ArrayList<CheckBox>();
+        q6.add(q6_optionA);
+        q6.add(q6_optionB);
+        q6.add(q6_optionC);
+        q6.add(q6_optionD);
+
+        result = result + check_question_checkbox(q6, q6_message);
+        result = result + check_question_text(q7_answer, q7_message);
+
 
         // We show a dialog to notify the user about the total score
         if (evaluated == Boolean.FALSE && eval == Boolean.FALSE)
@@ -501,24 +669,34 @@ public class Main2Activity extends AppCompatActivity {
         ScrollView sv = (ScrollView) findViewById(R.id.mainScrollView);
         sv.fullScroll(ScrollView.FOCUS_UP);
         evaluated = Boolean.TRUE;
+        q1_title.setFocusable(true);
     }
 
     // Method to configure the Dialog that the user will see once he finish the game
-    public void showResult(int score) {
-
+    private void showResult(int score) {
+        int icon = R.drawable.book;
         // The title and content of the dialog will be set depending on the total score
         String title = "";
         String content = "";
-
-        if (score >= 5) {
+        if (score >= 7) {
+            title = "whoa! you are an expert!";
+            content = "You answered all the questions correctly and you won the bonuses!!";
+            icon = R.drawable.goldenstar;
+        } else if (score >= 6) {
+            title = "Great job!";
+            content = "You got all the answer right and won a bonus!!";
+            icon = R.drawable.silverstar;
+        } else if (score >= 5) {
             title = "Amazing!";
-            content = "You got all the answers!";
+            content = "You got 5/7 answers correct!";
+            icon = R.drawable.bluestar;
         } else if (score >= 3) {
             title = "Congratulations!";
-            content = "You got " + Integer.toString(score) + "/5 correct answers!";
+            content = "You got " + Integer.toString(score) + "/7 correct answers!";
+            icon = R.drawable.bluestar;
         } else if (score >= 1) {
             title = "Mmm...";
-            content = "You got " + Integer.toString(score) + "/5 correct answers...you should practice more.";
+            content = "You got " + Integer.toString(score) + "/7 correct answers...you should practice more.";
         } else {
             title = "Ouch!";
             content = "All the answers are incorrect...it is time to study!";
@@ -536,6 +714,7 @@ public class Main2Activity extends AppCompatActivity {
                         dialogInterface.dismiss();
                     }
                 })
+                .setIcon(icon)
                 .show();
     }
 
@@ -544,6 +723,8 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 
         if (savedInstanceState != null) {
             // If the game already started, we should keep the same questions
@@ -564,6 +745,8 @@ public class Main2Activity extends AppCompatActivity {
             q3_message.setText("");
             q4_message.setText("");
             q5_message.setText("");
+            q6_message.setText("");
+            q7_message.setText("");
 
             // set questions on the screen
             set_questions_on_screen();
@@ -589,6 +772,7 @@ public class Main2Activity extends AppCompatActivity {
         });
 
     }
+
     @Override
     protected void onSaveInstanceState(Bundle onState) {
         super.onSaveInstanceState(onState);
@@ -606,6 +790,15 @@ public class Main2Activity extends AppCompatActivity {
         onState.putInt("a3", q3_buttons.getCheckedRadioButtonId());
         onState.putInt("a4", q4_buttons.getCheckedRadioButtonId());
         onState.putInt("a5", q5_buttons.getCheckedRadioButtonId());
+
+        // Saving checkboxes
+        onState.putBoolean("a6A", q6_optionA.isChecked());
+        onState.putBoolean("a6B", q6_optionB.isChecked());
+        onState.putBoolean("a6C", q6_optionC.isChecked());
+        onState.putBoolean("a6D", q6_optionD.isChecked());
+
+        // Saving text
+        onState.putString("a7", q7_answer.getText().toString());
 
         onState.putBoolean("eval", evaluated);
     }

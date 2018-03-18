@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingTop">1dp</dimen>
+    <dimen name="EditText_marginBottom">10dp</dimen>
+    <dimen name="layout_height">0dp</dimen>
+</resources>
